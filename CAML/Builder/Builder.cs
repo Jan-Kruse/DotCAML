@@ -6,11 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using SP = Microsoft.SharePoint.Client;
 
-namespace CAML.Builder
+namespace DotCAML
 {
-    class Builder
+    internal class Builder
     {
         internal List<AbstractElement> _tree { get; set; }
 
@@ -285,19 +284,6 @@ namespace CAML.Builder
             this._tree = new List<AbstractElement>();
             writer.Close();
             return sb.ToString();
-        }
-
-        internal SP.CamlQuery FinalizeToSPQuery()
-        {
-            var camlQuery = this.Finalize();
-
-            if (camlQuery.IndexOf("<View") != 0)
-                camlQuery = "<View><Query>" + camlQuery + "</Query></View>";
-
-            var query = new SP.CamlQuery();
-            query.ViewXml = camlQuery;
-
-            return query;
         }
     }
 }

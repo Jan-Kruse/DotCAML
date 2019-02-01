@@ -3,19 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CAML.Models.Expressions;
 
-using SP = Microsoft.SharePoint.Client;
-
-namespace CAML.Models.Query
+namespace DotCAML
 {
-    class Query : IQuery
+    internal class Query : IQuery
     {
-        private Builder.Builder _builder;
+        private Builder _builder;
 
-        internal Query(Builder.Builder builder = null)
+        internal Query(Builder builder = null)
         {
-            this._builder = builder ?? new Builder.Builder();
+            this._builder = builder ?? new Builder();
         }
 
         public IGroupedQuery GroupBy(string fieldInternalName, bool? collapse, int? groupLimit)
@@ -36,11 +33,6 @@ namespace CAML.Models.Query
             this._builder.WriteStartOrderBy(overwrite ?? false, useIndexForOrderBy ?? false);
             this._builder.WriteFieldRef(fieldInternalName, descending: true);
             return new SortedQuery(this._builder);
-}
-
-        public SP.CamlQuery ToCamlQuery()
-        {
-            return this._builder.FinalizeToSPQuery();
         }
 
         public override string ToString()

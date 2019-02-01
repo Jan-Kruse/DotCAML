@@ -1,18 +1,17 @@
-﻿using CAML.Models.Query;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAML.Models.Expressions
+namespace DotCAML
 {
-    class FieldExpression : IFieldExpression
+    internal class FieldExpression : IFieldExpression
     {
-        private Builder.Builder _builder;
+        private Builder _builder;
 
-        internal FieldExpression(Builder.Builder builder)
+        internal FieldExpression(Builder builder)
         {
             this._builder = builder;
         }
@@ -21,12 +20,12 @@ namespace CAML.Models.Expressions
         {
             var pos = this._builder._tree.Count;
 
-            var builders = new List<Builder.Builder>();
+            var builders = new List<Builder>();
 
             foreach (IExpression condition in conditions)
             {
                 var builder = condition.GetType().GetField("_builder", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(condition);
-                builders.Add((Builder.Builder)builder);
+                builders.Add((Builder)builder);
             }
 
             this._builder.WriteConditions(builders.ToArray(), "And");
@@ -37,12 +36,12 @@ namespace CAML.Models.Expressions
         {
             var pos = this._builder._tree.Count;
 
-            var builders = new List<Builder.Builder>();
+            var builders = new List<Builder>();
 
             foreach (IExpression condition in conditions)
             {
                 var builder = condition.GetType().GetField("_builder", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(condition);
-                builders.Add((Builder.Builder)builder);
+                builders.Add((Builder)builder);
             }
 
             this._builder.WriteConditions(builders.ToArray(), "Or");

@@ -2,9 +2,8 @@
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CAML.Models.Expressions;
 
-namespace CAMLTest
+namespace DotCAML.Tests
 {
     [TestClass]
     public class TestDynamicBracketExpressions
@@ -19,20 +18,20 @@ namespace CAMLTest
 
             foreach (var category in categories)
             {
-                categoriesExpressions.Add(CAML.CAML.Expression().TextField("ContentCategory").EqualTo(category));
+                categoriesExpressions.Add(CAML.Expression().TextField("ContentCategory").EqualTo(category));
             }
 
             var purposesExpressions = new List<IExpression>();
 
             foreach (var purpose in purposes)
             {
-                purposesExpressions.Add(CAML.CAML.Expression().TextField("ContentPurpose").EqualTo(purpose));
+                purposesExpressions.Add(CAML.Expression().TextField("ContentPurpose").EqualTo(purpose));
             }
 
-            var caml = CAML.CAML.Where()
+            var caml = CAML.Where()
                 .All(
-                    CAML.CAML.Expression().Any(categoriesExpressions.ToArray()),
-                    CAML.CAML.Expression().Any(purposesExpressions.ToArray())
+                    CAML.Expression().Any(categoriesExpressions.ToArray()),
+                    CAML.Expression().Any(purposesExpressions.ToArray())
                 )
                 .ToString();
 

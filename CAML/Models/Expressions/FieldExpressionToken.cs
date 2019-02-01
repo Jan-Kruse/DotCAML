@@ -1,21 +1,19 @@
-﻿using CAML.Builder;
-using CAML.Models.Query;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAML.Models.Expressions
+namespace DotCAML
 {
-    class FieldExpressionToken : IBooleanFieldExpression, INumberFieldExpression, ITextFieldExpression, IDateTimeFieldExpression
+    internal class FieldExpressionToken : IBooleanFieldExpression, INumberFieldExpression, ITextFieldExpression, IDateTimeFieldExpression
     {
-        private Builder.Builder _builder;
+        private Builder _builder;
         private string _name;
         private int _startIndex;
         private string _valueType;
 
-        internal FieldExpressionToken(Builder.Builder builder, string name, string valueType, bool isLookupId = false)
+        internal FieldExpressionToken(Builder builder, string name, string valueType, bool isLookupId = false)
         {
             this._builder = builder;
             this._name = name;

@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAML.Models.Expressions
+namespace DotCAML
 {
-    class LookupFieldExpression : ILookupFieldExpression
+    internal class LookupFieldExpression : ILookupFieldExpression
     {
-        private Builder.Builder _builder;
+        private Builder _builder;
         private string _name;
 
-        internal LookupFieldExpression(Builder.Builder builder, string name)
+        internal LookupFieldExpression(Builder builder, string name)
         {
             this._builder = builder;
             this._name = name;

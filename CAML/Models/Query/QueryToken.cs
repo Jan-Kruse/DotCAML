@@ -1,21 +1,17 @@
-﻿using CAML.Builder;
-using CAML.Models.Expressions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using SP = Microsoft.SharePoint.Client;
-
-namespace CAML.Models.Query
+namespace DotCAML
 {
-    class QueryToken : IExpression
+    internal class QueryToken : IExpression
     {
-        private Builder.Builder _builder;
+        private Builder _builder;
         private int _startIndex;
 
-        internal QueryToken(Builder.Builder builder, int startIndex)
+        internal QueryToken(Builder builder, int startIndex)
         {
             this._builder = builder;
             this._startIndex = startIndex;
@@ -53,11 +49,6 @@ namespace CAML.Models.Query
             this._builder.WriteStartOrderBy(overwrite ?? false, useIndexForOrderBy ?? false);
             this._builder.WriteFieldRef(fieldInternalName, descending: true);
             return new SortedQuery(this._builder);
-}
-
-        public SP.CamlQuery ToCamlQuery()
-        {
-            return this._builder.FinalizeToSPQuery();
         }
 
         public override string ToString()

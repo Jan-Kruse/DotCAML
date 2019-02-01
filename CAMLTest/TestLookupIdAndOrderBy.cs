@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CAMLTest
+namespace DotCAML.Tests
 {
     [TestClass]
     public class TestLookupIdAndOrderBy
@@ -9,10 +9,10 @@ namespace CAMLTest
         [TestMethod]
         public void Test()
         {
-            var caml = CAML.CAML.Where()
+            var caml = CAML.Where()
                 .LookupField("Category").Id().In(new int[] { 2, 3, 10 })
                 .And()
-                .DateField("ExpirationDate").GreaterThan(CAML.CamlValues.Now)
+                .DateField("ExpirationDate").GreaterThan(CamlValues.Now)
                 .OrderBy("ExpirationDate")
                 .ToString();
 

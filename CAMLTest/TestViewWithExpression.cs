@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CAMLTest
+namespace DotCAML.Tests
 {
     [TestClass]
     public class TestViewWithExpression
@@ -9,9 +9,9 @@ namespace CAMLTest
         [TestMethod]
         public void Test()
         {
-            var expression = CAML.CAML.Expression().BooleanField("Enabled").IsTrue();
+            var expression = CAML.Expression().BooleanField("Enabled").IsTrue();
 
-            var caml = CAML.CAML.View().Query().Where().All(expression).OrderBy("Priority").ToString();
+            var caml = CAML.View().Query().Where().All(expression).OrderBy("Priority").ToString();
 
             string expected = @"<View>
                     <Query>

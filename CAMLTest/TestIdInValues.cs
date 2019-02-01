@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CAMLTest
+namespace DotCAML.Tests
 {
     [TestClass]
     public class TestIdInValues
@@ -9,7 +9,7 @@ namespace CAMLTest
         [TestMethod]
         public void Test()
         {
-            var caml = CAML.CAML.Where().CounterField("ID").In(new int[] { 1, 2, 3 }).ToString();
+            var caml = CAML.Where().CounterField("ID").In(new int[] { 1, 2, 3 }).ToString();
 
             string expected = @"<Where>
                 <In>

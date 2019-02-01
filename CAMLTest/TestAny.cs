@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CAMLTest
+namespace DotCAML.Tests
 {
     [TestClass]
     public class TestAny
@@ -9,12 +9,12 @@ namespace CAMLTest
         [TestMethod]
         public void Test()
         {
-            string caml = CAML.CAML.Where()
+            string caml = CAML.Where()
                 .Any(
-                    CAML.CAML.Expression().TextField("Email").EqualTo("support@google.com"),
-                    CAML.CAML.Expression().TextField("Email").EqualTo("plus@google.com"),
-                    CAML.CAML.Expression().TextField("Title").BeginsWith("[Google]"),
-                    CAML.CAML.Expression().TextField("Content").Contains("Google")
+                    CAML.Expression().TextField("Email").EqualTo("support@google.com"),
+                    CAML.Expression().TextField("Email").EqualTo("plus@google.com"),
+                    CAML.Expression().TextField("Title").BeginsWith("[Google]"),
+                    CAML.Expression().TextField("Content").Contains("Google")
                 )
                 .ToString();
 

@@ -3,7 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CAMLTest
+namespace DotCAML.Tests
 {
     [TestClass]
     public class TestQueryOrderBy
@@ -12,7 +12,7 @@ namespace CAMLTest
         [TestMethod]
         public void Test()
         {
-            var caml = CAML.CAML
+            var caml = CAML
                 .View()
                 .Query()
                     .OrderBy("ID")

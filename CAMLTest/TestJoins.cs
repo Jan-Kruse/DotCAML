@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CAMLTest
+namespace DotCAML.Tests
 {
     [TestClass]
     public class TestJoins
@@ -9,7 +9,7 @@ namespace CAMLTest
         [TestMethod]
         public void Test()
         {
-            var caml = CAML.CAML
+            var caml = CAML
                 .View(new string[] { "Title", "Country", "Population"})
                     .LeftJoin("Country", "Country").Select("y4r6", "Population")
                 .Query()

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAML.Builder
+namespace DotCAML
 {
-    class StartElement : AbstractElement
+    internal class StartElement : AbstractElement
     {
     }
 }

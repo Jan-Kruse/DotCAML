@@ -4,22 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAML
+namespace DotCAML
 {
     public class CamlValues
     {
-        public static string UserID = "{UserID}";
+        public static string UserID { get; } = "{UserID}";
 
-        public static string Today = "{Today}";
+        public static string Today { get; } = "{Today}";
 
         public static string TodayWithOffset(int offsetDays)
         {
             return "{Today OffsetDays=\"" + offsetDays + "\"}";
         }
 
-        public static string Now = "{Now}";
+        public static string Now { get; } = "{Now}";
 
-        public static ListProperty ListProperty  = new ListProperty {
+        public static ListProperty ListProperty { get; } = new ListProperty {
             Created = "{ListProperty Name=\"Created\"}",
             DefaultViewUrl = "{ListProperty Name=\"DefaultViewUrl\"}",
             Description = "{ListProperty Name=\"Description\"}",
@@ -33,7 +33,7 @@ namespace CAML
             ViewSelector = "{ListProperty Name=\"ViewSelector\"}"
         };
 
-        public static ProjectProperty ProjectProperty = new ProjectProperty {
+        public static ProjectProperty ProjectProperty { get; } = new ProjectProperty {
             BlogCategoryTitle = "{ProjectProperty Name=\"BlogCategoryTitle\"}",
             BlogPostTitle = "{ProjectProperty Name=\"BlogPostTitle\"}",
             Description = "{ProjectProperty Name=\"Description\"}",

@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAML.Models.Expressions
+namespace DotCAML
 {
-    class ModStatFieldExpression : IModStatFieldExpression
+    internal class ModStatFieldExpression : IModStatFieldExpression
     {
-        private Builder.Builder _builder;
+        private Builder _builder;
         private string _name;
         private int _startIndex;
 
-        internal ModStatFieldExpression(Builder.Builder builder, string name)
+        internal ModStatFieldExpression(Builder builder, string name)
         {
             this._builder = builder;
             this._name = name;

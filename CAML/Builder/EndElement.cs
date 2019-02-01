@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAML.Builder
+namespace DotCAML
 {
-    class EndElement : AbstractElement
+    internal class EndElement : AbstractElement
     {
         public int? Count { get; set; }
     }

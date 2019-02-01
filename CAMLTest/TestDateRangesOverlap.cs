@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CAMLTest
+namespace DotCAML.Tests
 {
     [TestClass]
     public class TestDateRangesOverlap
@@ -9,14 +9,14 @@ namespace CAMLTest
         [TestMethod]
         public void Test()
         {
-            var caml = CAML.CAML.Expression()
+            var caml = CAML.Expression()
                 .All(
-                    CAML.CAML.Expression().DateField("BroadcastExpires").GreaterThanOrEqualTo(CAML.CamlValues.Today),
-                    CAML.CAML.Expression().Any(
-                        CAML.CAML.Expression().UserField("BroadcastTo").IsInCurrentUserGroups(),
-                        CAML.CAML.Expression().UserField("BroadcastTo").EqualToCurrentUser()
+                    CAML.Expression().DateField("BroadcastExpires").GreaterThanOrEqualTo(CamlValues.Today),
+                    CAML.Expression().Any(
+                        CAML.Expression().UserField("BroadcastTo").IsInCurrentUserGroups(),
+                        CAML.Expression().UserField("BroadcastTo").EqualToCurrentUser()
                     ),
-                    CAML.CAML.Expression().DateRangesOverlap(CAML.DateRangesOverlapType.Year, new DateTime().ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ"))
+                    CAML.Expression().DateRangesOverlap(DateRangesOverlapType.Year, new DateTime().ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ"))
                 )
                 .ToString();
 

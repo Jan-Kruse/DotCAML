@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CAMLTest
+namespace DotCAML.Tests
 {
     [TestClass]
     public class TestNestedJoins
@@ -9,7 +9,7 @@ namespace CAMLTest
         [TestMethod]
         public void Test()
         {
-            var caml = CAML.CAML
+            var caml = CAML
                 .View(new string[] { "Title", "CustomerCity" })
                     .LeftJoin("CustomerName", "customers")
                     .LeftJoin("CityName", "customerCities", "customers")
@@ -44,7 +44,7 @@ namespace CAMLTest
 
             Assert.AreEqual(Beautify.Xml(expected), Beautify.Xml(caml));
 
-            caml = CAML.CAML
+            caml = CAML
                 .View(new string[] { "Title", "CustomerName", "CustomerCity" })
                     .LeftJoin("CustomerName", "customers")
                     .Select("Title", "CustomerName")

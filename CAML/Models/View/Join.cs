@@ -1,18 +1,17 @@
-﻿using CAML.Models.Operations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAML.Models.View
+namespace DotCAML
 {
     class Join : IJoin
     {
-        private Builder.Builder _builder;
+        private Builder _builder;
         private JoinsManager _joinsManager;
 
-        internal Join(Builder.Builder builder, JoinsManager joinsManager)
+        internal Join(Builder builder, JoinsManager joinsManager)
         {
             this._builder = builder;
             this._joinsManager = joinsManager;

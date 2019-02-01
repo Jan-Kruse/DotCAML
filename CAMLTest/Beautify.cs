@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace CAMLTest
+namespace DotCAML.Tests
 {
     class Beautify
     {

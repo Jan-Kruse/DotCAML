@@ -1,18 +1,14 @@
-﻿using CAML.Models.Expressions;
-using CAML.Models.Operations;
-using CAML.Models.Query;
-using CAML.Models.View;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAML
+namespace DotCAML
 {
     public class CAML
     {
-        public static IView View(string[] viewFields = null, Aggregation[] aggregations = null)
+        public static IView View(string[] viewFields = null, params (AggregationType, string)[] aggregations)
         {
             return new View().NewView(viewFields, aggregations);
         }
@@ -29,7 +25,7 @@ namespace CAML
 
         public static IFieldExpression Expression()
         {
-            return new FieldExpression(new Builder.Builder());
+            return new FieldExpression(new Builder());
         }
 
         public static IRawQuery RawQuery(string xml)

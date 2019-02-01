@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CAMLTest
+namespace DotCAML.Tests
 {
     [TestClass]
     public class TestNestedBracketExpressions
@@ -9,15 +9,15 @@ namespace CAMLTest
         [TestMethod]
         public void Test()
         {
-            var caml = CAML.CAML.Where()
+            var caml = CAML.Where()
                 .All(
-                    CAML.CAML.Expression().All(
-                        CAML.CAML.Expression().BooleanField("Enabled").IsTrue(),
-                        CAML.CAML.Expression().UserMultiField("TargetAudience").IncludesSuchItemThat().ValueAsText().EqualTo("55").Or().UserMultiField("TargetAudience").IncludesSuchItemThat().ValueAsText().EqualTo("66")
+                    CAML.Expression().All(
+                        CAML.Expression().BooleanField("Enabled").IsTrue(),
+                        CAML.Expression().UserMultiField("TargetAudience").IncludesSuchItemThat().ValueAsText().EqualTo("55").Or().UserMultiField("TargetAudience").IncludesSuchItemThat().ValueAsText().EqualTo("66")
                         ),
-                    CAML.CAML.Expression().Any(
-                        CAML.CAML.Expression().TextField("NotificationScope").EqualTo("77"),
-                        CAML.CAML.Expression().TextField("NotificationScope").EqualTo("88").And().TextField("ScopeWebRelativeUrl").EqualTo("99")
+                    CAML.Expression().Any(
+                        CAML.Expression().TextField("NotificationScope").EqualTo("77"),
+                        CAML.Expression().TextField("NotificationScope").EqualTo("88").And().TextField("ScopeWebRelativeUrl").EqualTo("99")
                         )
                 )
                 .ToString();

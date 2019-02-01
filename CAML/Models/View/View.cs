@@ -3,30 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CAML.Models.Operations;
-using CAML.Models.Query;
-using Microsoft.SharePoint.Client;
 
-namespace CAML.Models.View
+namespace DotCAML
 {
     class View : IView, IProjectableView
     {
-        private Builder.Builder _builder;
+        private Builder _builder;
         private JoinsManager _joinsManager;
 
         internal View()
         {
-            this._builder = new Builder.Builder();
+            this._builder = new Builder();
         }
 
-        internal IView NewView(string[] viewFields = null, Aggregation[] aggregations = null)
+        internal IView NewView(string[] viewFields = null, params (AggregationType, string)[] aggregations)
         {
             this._builder.WriteStart("View");
             this._builder._unclosedTags++;
 
             if (viewFields != null)
                 this.CreateViewFields(viewFields);
-            if (aggregations != null)
+            if (aggregations != null && aggregations.Length > 0)
                 this.CreateAggregations(aggregations);
 
             this._joinsManager = new JoinsManager(this._builder, this);
@@ -47,16 +44,16 @@ namespace CAML.Models.View
             return this;
         }
 
-        internal IFinalizableToString CreateAggregations(Aggregation[] aggregations)
+        internal IFinalizableToString CreateAggregations(params (AggregationType, string)[] aggregations)
         {
-            this._builder.WriteStart("Aggregations", new List<Builder.Attribute>() { new Builder.Attribute { Name = "Value", Value = "On" } });
-            
+            this._builder.WriteStart("Aggregations", new List<Attribute>() { new Attribute { Name = "Value", Value = "On" } });
+
             foreach (var aggregation in aggregations)
             {
                 var dict = new Dictionary<string, string>();
-                dict["Type"] = aggregation.Type.ToString().ToUpper(); ;
+                dict["Type"] = aggregation.Item1.ToString().ToUpper(); ;
 
-                this._builder.WriteFieldRef(aggregation.Name, options: dict);
+                this._builder.WriteFieldRef(aggregation.Item2, options: dict);
             }
 
             this._builder.WriteEnd();
@@ -79,7 +76,7 @@ namespace CAML.Models.View
             this._builder.WriteStart("Query");
             this._builder._unclosedTags++;
 
-            return new Query.Query(this._builder);
+            return new Query(this._builder);
         }
 
         public IView RowLimit(int limit, bool? paged)
@@ -119,12 +116,6 @@ namespace CAML.Models.View
                 this._joinsManager.FinalizeJoin();
 
             return this._builder.Finalize();
-        }
-
-        public CamlQuery ToCamlQuery()
-        {
-            this._joinsManager.FinalizeJoin();
-            return this._builder.FinalizeToSPQuery();
         }
     }
 }

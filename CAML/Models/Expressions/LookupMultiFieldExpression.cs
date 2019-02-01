@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAML.Models.Expressions
+namespace DotCAML
 {
-    class LookupMultiFieldExpression : ILookupMultiFieldExpression
+    internal class LookupMultiFieldExpression : ILookupMultiFieldExpression
     {
-        private Builder.Builder _builder;
+        private Builder _builder;
         private string _name;
         private string _typeAsString;
 
-        internal LookupMultiFieldExpression(Builder.Builder builder, string name)
+        internal LookupMultiFieldExpression(Builder builder, string name)
         {
             this._builder = builder;
             this._name = name;

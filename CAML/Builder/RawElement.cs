@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAML.Builder
+namespace DotCAML
 {
-    class RawElement : AbstractElement
+    internal class RawElement : AbstractElement
     {
         internal string Xml { get; set; }
     }

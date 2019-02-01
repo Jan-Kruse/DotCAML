@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using SP = Microsoft.SharePoint.Client;
-
-namespace CAML.Models.Operations
+namespace DotCAML
 {
     public interface IFinalizable : IFinalizableToString
     {
-         SP.CamlQuery ToCamlQuery();
     }
 }

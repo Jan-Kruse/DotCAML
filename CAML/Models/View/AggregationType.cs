@@ -4,15 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAML
+namespace DotCAML
 {
-    public class Aggregation
-    {
-        public AggregationType Type { get; set; }
-
-        public string Name { get; set; }
-    }
-
     public enum AggregationType
     {
         Count,

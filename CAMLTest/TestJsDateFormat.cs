@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CAMLTest
+namespace DotCAML.Tests
 {
     [TestClass]
     public class TestJsDateFormat
@@ -9,7 +9,7 @@ namespace CAMLTest
         [TestMethod]
         public void Test()
         {
-            var caml = CAML.CAML.Where().DateTimeField("Created").GreaterThan(new DateTime(2013, 1, 1, 0, 0, 0, DateTimeKind.Utc)).ToString();
+            var caml = CAML.Where().DateTimeField("Created").GreaterThan(new DateTime(2013, 1, 1, 0, 0, 0, DateTimeKind.Utc)).ToString();
 
             string expected = @"<Where>
                 <Gt>

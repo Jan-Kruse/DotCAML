@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CAMLTest
+namespace DotCAML.Tests
 {
     [TestClass]
     public class TestAggregations
@@ -9,10 +9,8 @@ namespace CAMLTest
         [TestMethod]
         public void Test()
         {
-            var caml = CAML.CAML
-                .View(new string[] { "Category" }, new CAML.Aggregation[] {
-                    new CAML.Aggregation { Type = CAML.AggregationType.Count, Name = "ID" },
-                    new CAML.Aggregation { Type = CAML.AggregationType.Sum, Name = "Amount" }})
+            var caml = CAML
+                .View(new string[] { "Category" }, (AggregationType.Count, "ID" ), (AggregationType.Sum, "Amount" ))
                 .Query()
                     .GroupBy("Category", true, 100)
                 .ToString();

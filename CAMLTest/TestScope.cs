@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CAMLTest
+namespace DotCAML.Tests
 {
     [TestClass]
     public class TestScope
@@ -9,9 +9,9 @@ namespace CAMLTest
         [TestMethod]
         public void Test()
         {
-            var caml = CAML.CAML
+            var caml = CAML
                 .View()
-                    .Scope(CAML.ViewScope.RecursiveAll)
+                    .Scope(ViewScope.RecursiveAll)
                 .Query()
                     .Where().NumberField("ID").IsNotNull()
                 .ToString();

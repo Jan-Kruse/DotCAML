@@ -1,20 +1,19 @@
-﻿using CAML.Models.Operations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAML.Models.View
+namespace DotCAML
 {
     class JoinsManager
     {
-        private Builder.Builder _builder;
+        private Builder _builder;
         private View _originalView;
         private List<InternalJoin> _joins;
         private List<ProjectedField> _projectedFields;
 
-        internal JoinsManager(Builder.Builder builder, View view)
+        internal JoinsManager(Builder builder, View view)
         {
             this._projectedFields = new List<ProjectedField>();
             this._joins = new List<InternalJoin>();
@@ -30,9 +29,9 @@ namespace CAML.Models.View
 
                 foreach (var join in this._joins)
                 {
-                    this._builder.WriteStart("Join", new List<Builder.Attribute>() {
-                        new Builder.Attribute { Name = "Type", Value = join.JoinType },
-                        new Builder.Attribute { Name = "ListAlias", Value = join.Alias }
+                    this._builder.WriteStart("Join", new List<Attribute>() {
+                        new Attribute { Name = "Type", Value = join.JoinType },
+                        new Attribute { Name = "ListAlias", Value = join.Alias }
                     });
 
                     this._builder.WriteStart("Eq");
@@ -56,11 +55,11 @@ namespace CAML.Models.View
                 this._builder.WriteStart("ProjectedFields");
 
                 foreach (var projField in this._projectedFields) {
-                    this._builder.WriteStart("Field", new List<Builder.Attribute>() {
-                        new Builder.Attribute { Name = "ShowField", Value = projField.FieldName },
-                        new Builder.Attribute { Name = "Type", Value = "Lookup" },
-                        new Builder.Attribute { Name = "Name", Value = projField.Alias },
-                        new Builder.Attribute { Name = "List", Value = projField.JoinAlias }
+                    this._builder.WriteStart("Field", new List<Attribute>() {
+                        new Attribute { Name = "ShowField", Value = projField.FieldName },
+                        new Attribute { Name = "Type", Value = "Lookup" },
+                        new Attribute { Name = "Name", Value = projField.Alias },
+                        new Attribute { Name = "List", Value = projField.JoinAlias }
                     });
 
                     this._builder.WriteEnd();

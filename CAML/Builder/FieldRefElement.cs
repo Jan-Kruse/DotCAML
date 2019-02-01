@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAML.Builder
+namespace DotCAML
 {
-    class FieldRefElement : AbstractElement
+    internal class FieldRefElement : AbstractElement
     {
         internal bool LookupId { get; set; }
 

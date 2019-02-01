@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAML.Models.Expressions
+namespace DotCAML
 {
-    class UserMultiFieldExpression : IUserMultiFieldExpression
+    internal class UserMultiFieldExpression : IUserMultiFieldExpression
     {
-        private Builder.Builder _builder;
+        private Builder _builder;
         private string _name;
         private string _typeAsString;
 
-        internal UserMultiFieldExpression(Builder.Builder builder, string name)
+        internal UserMultiFieldExpression(Builder builder, string name)
         {
             this._builder = builder;
             this._name = name;

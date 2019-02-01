@@ -1,19 +1,18 @@
-﻿using CAML.Models.Query;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAML.Models.Expressions
+namespace DotCAML
 {
-    class UserFieldExpression : IUserFieldExpression
+    internal class UserFieldExpression : IUserFieldExpression
     {
-        private Builder.Builder _builder;
+        private Builder _builder;
         private string _name;
         private int _startIndex;
 
-        internal UserFieldExpression(Builder.Builder builder, string name)
+        internal UserFieldExpression(Builder builder, string name)
         {
             this._builder = builder;
             this._name = name;
