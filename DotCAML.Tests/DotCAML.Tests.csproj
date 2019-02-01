@@ -76,7 +76,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CAML\DotCAML.csproj">
+    <ProjectReference Include="..\DotCAML\DotCAML.csproj">
       <Project>{e64df019-7cc7-44a1-afef-483a03b49f45}</Project>
       <Name>DotCAML</Name>
     </ProjectReference>

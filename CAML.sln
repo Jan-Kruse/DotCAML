@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotCAML", "CAML\DotCAML.csproj", "{E64DF019-7CC7-44A1-AFEF-483A03B49F45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotCAML", "DotCAML\DotCAML.csproj", "{E64DF019-7CC7-44A1-AFEF-483A03B49F45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotCAML.Tests", "CAMLTest\DotCAML.Tests.csproj", "{C51CBC86-26F8-418E-9413-1DDA48BD4CF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotCAML.Tests", "DotCAML.Tests\DotCAML.Tests.csproj", "{C51CBC86-26F8-418E-9413-1DDA48BD4CF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
