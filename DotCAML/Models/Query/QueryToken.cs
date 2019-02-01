@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DotCAML
+﻿namespace DotCAML
 {
     internal class QueryToken : IExpression
     {
@@ -42,7 +36,7 @@ namespace DotCAML
             this._builder.WriteStartOrderBy(overwrite ?? false, useIndexForOrderBy ?? false);
             this._builder.WriteFieldRef(fieldInternalName);
             return new SortedQuery(this._builder);
-    }
+        }
 
         public ISortedQuery OrderByDesc(string fieldInternalName, bool? overwrite, bool? useIndexForOrderBy)
         {

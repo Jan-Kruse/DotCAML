@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DotCAML
 {
@@ -89,15 +85,19 @@ namespace DotCAML
                 case DateRangesOverlapType.Now:
                     value = CamlValues.Now;
                     break;
+
                 case DateRangesOverlapType.Day:
                     value = CamlValues.Today;
                     break;
+
                 case DateRangesOverlapType.Week:
                     value = "{Week}";
                     break;
+
                 case DateRangesOverlapType.Month:
                     value = "{Month}";
                     break;
+
                 case DateRangesOverlapType.Year:
                     value = "{Year}";
                     break;

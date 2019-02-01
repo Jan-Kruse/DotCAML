@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DotCAML.Tests
 {
@@ -10,7 +9,7 @@ namespace DotCAML.Tests
         public void Test()
         {
             var caml = CAML
-                .View(new string[] { "Title", "Country", "Population"})
+                .View(new string[] { "Title", "Country", "Population" })
                     .LeftJoin("Country", "Country").Select("y4r6", "Population")
                 .Query()
                     .Where().NumberField("Population").LessThan(10)

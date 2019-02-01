@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DotCAML.Tests
 {
@@ -10,7 +9,7 @@ namespace DotCAML.Tests
         public void Test()
         {
             var caml = CAML
-                .View(new string[] { "Category" }, (AggregationType.Count, "ID" ), (AggregationType.Sum, "Amount" ))
+                .View(new string[] { "Category" }, (AggregationType.Count, "ID"), (AggregationType.Sum, "Amount"))
                 .Query()
                     .GroupBy("Category", true, 100)
                 .ToString();

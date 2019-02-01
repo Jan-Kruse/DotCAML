@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DotCAML
 {
@@ -19,7 +15,7 @@ namespace DotCAML
             this._name = name;
             this._valueType = valueType;
             this._startIndex = this._builder._tree.Count;
-            
+
             this._builder.WriteFieldRef(this._name, lookupId: isLookupId);
         }
 
@@ -115,7 +111,7 @@ namespace DotCAML
             this._builder.WriteEnd();
 
             return new QueryToken(this._builder, this._startIndex);
-    }
+        }
 
         public IExpression In(string[] arrayOfValues)
         {

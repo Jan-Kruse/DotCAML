@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DotCAML
+﻿namespace DotCAML
 {
-    class Join : IJoin
+    internal class Join : IJoin
     {
         private Builder _builder;
         private JoinsManager _joinsManager;

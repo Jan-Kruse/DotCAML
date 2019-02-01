@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DotCAML
 {
-    class View : IView, IProjectableView
+    internal class View : IView, IProjectableView
     {
         private Builder _builder;
         private JoinsManager _joinsManager;
@@ -92,12 +89,15 @@ namespace DotCAML
                 case ViewScope.FilesOnly:
                     this._builder.SetAttributeToLastElement("View", "Scope", "FilesOnly");
                     break;
+
                 case ViewScope.Recursive:
                     this._builder.SetAttributeToLastElement("View", "Scope", "Recursive");
                     break;
+
                 case ViewScope.RecursiveAll:
                     this._builder.SetAttributeToLastElement("View", "Scope", "RecursiveAll");
                     break;
+
                 default:
                     throw new Exception("Incorrect view scope! Please use values from CAML.ViewScope enumeration.");
             }

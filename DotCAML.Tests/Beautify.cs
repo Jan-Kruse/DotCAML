@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace DotCAML.Tests
 {
-    class Beautify
+    internal class Beautify
     {
         internal static string Xml(string xml)
         {

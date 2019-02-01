@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DotCAML
+﻿namespace DotCAML
 {
     public class CamlValues
     {
@@ -19,7 +13,8 @@ namespace DotCAML
 
         public static string Now { get; } = "{Now}";
 
-        public static ListProperty ListProperty { get; } = new ListProperty {
+        public static ListProperty ListProperty { get; } = new ListProperty
+        {
             Created = "{ListProperty Name=\"Created\"}",
             DefaultViewUrl = "{ListProperty Name=\"DefaultViewUrl\"}",
             Description = "{ListProperty Name=\"Description\"}",
@@ -33,7 +28,8 @@ namespace DotCAML
             ViewSelector = "{ListProperty Name=\"ViewSelector\"}"
         };
 
-        public static ProjectProperty ProjectProperty { get; } = new ProjectProperty {
+        public static ProjectProperty ProjectProperty { get; } = new ProjectProperty
+        {
             BlogCategoryTitle = "{ProjectProperty Name=\"BlogCategoryTitle\"}",
             BlogPostTitle = "{ProjectProperty Name=\"BlogPostTitle\"}",
             Description = "{ProjectProperty Name=\"Description\"}",

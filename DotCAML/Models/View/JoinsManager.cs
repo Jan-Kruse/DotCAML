@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace DotCAML
 {
-    class JoinsManager
+    internal class JoinsManager
     {
         private Builder _builder;
         private View _originalView;
@@ -54,7 +50,8 @@ namespace DotCAML
                 this._builder.WriteEnd();
                 this._builder.WriteStart("ProjectedFields");
 
-                foreach (var projField in this._projectedFields) {
+                foreach (var projField in this._projectedFields)
+                {
                     this._builder.WriteStart("Field", new List<Attribute>() {
                         new Attribute { Name = "ShowField", Value = projField.FieldName },
                         new Attribute { Name = "Type", Value = "Lookup" },
@@ -71,17 +68,18 @@ namespace DotCAML
 
         internal IJoin Join(string lookupFieldInternalName, string alias, string joinType, string fromList = null)
         {
-            this._joins.Add(new InternalJoin { RefFieldName = lookupFieldInternalName, Alias = alias, JoinType = joinType, FromList = fromList});
+            this._joins.Add(new InternalJoin { RefFieldName = lookupFieldInternalName, Alias = alias, JoinType = joinType, FromList = fromList });
             return new Join(this._builder, this);
         }
+
         internal IProjectableView ProjectedField(string remoteFieldInternalName, string remoteFieldAlias)
         {
-            this._projectedFields.Add(new ProjectedField{ FieldName = remoteFieldInternalName, Alias = remoteFieldAlias, JoinAlias = this._joins[this._joins.Count - 1].Alias });
+            this._projectedFields.Add(new ProjectedField { FieldName = remoteFieldInternalName, Alias = remoteFieldAlias, JoinAlias = this._joins[this._joins.Count - 1].Alias });
             return this._originalView;
         }
     }
 
-    class InternalJoin
+    internal class InternalJoin
     {
         internal string RefFieldName { get; set; }
         internal string Alias { get; set; }
@@ -89,7 +87,7 @@ namespace DotCAML
         internal string FromList { get; set; }
     }
 
-    class ProjectedField
+    internal class ProjectedField
     {
         public string FieldName { get; internal set; }
         public string Alias { get; internal set; }

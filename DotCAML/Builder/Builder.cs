@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace DotCAML
@@ -108,7 +105,7 @@ namespace DotCAML
 
         internal void WriteUnaryOperation(int startIndex, string operation)
         {
-            this._tree.Insert(startIndex, new StartElement {Name = operation });
+            this._tree.Insert(startIndex, new StartElement { Name = operation });
             this.WriteEnd();
         }
 
@@ -130,20 +127,20 @@ namespace DotCAML
                 else if (this._tree[0].Name == "View")
                     tagsToClose -= 2;
                 if (tagsToClose > 0)
-                    this._tree.Add(new EndElement {Count = tagsToClose });
+                    this._tree.Add(new EndElement { Count = tagsToClose });
 
                 this._unclosedTags -= tagsToClose;
             }
 
-            var  elem = new StartElement { Name = "GroupBy", Attributes = new List<Attribute>() };
+            var elem = new StartElement { Name = "GroupBy", Attributes = new List<Attribute>() };
 
             if (collapse)
                 elem.Attributes.Add(new Attribute { Name = "Collapse", Value = "TRUE" });
             if (groupLimit.HasValue)
                 elem.Attributes.Add(new Attribute { Name = "GroupLimit", Value = "" + groupLimit.Value });
-            
+
             this._tree.Add(elem);
-            this._tree.Add(new FieldRefElement { Name = groupFieldName});
+            this._tree.Add(new FieldRefElement { Name = groupFieldName });
             this.WriteEnd();
         }
 
@@ -177,7 +174,7 @@ namespace DotCAML
             this._unclosedTags++;
         }
 
-        internal void WriteConditions(Builder[]  builders, string elementName)
+        internal void WriteConditions(Builder[] builders, string elementName)
         {
             var pos = this._tree.Count;
 
@@ -204,9 +201,9 @@ namespace DotCAML
             StringBuilder sb = new StringBuilder();
             XmlWriter writer = XmlWriter.Create(sb, new XmlWriterSettings { OmitXmlDeclaration = true, ConformanceLevel = ConformanceLevel.Fragment });
 
-            foreach(AbstractElement element in this._tree)
+            foreach (AbstractElement element in this._tree)
             {
-                switch(element)
+                switch (element)
                 {
                     case FieldRefElement elem when element is FieldRefElement:
                         writer.WriteStartElement("FieldRef");
@@ -227,20 +224,23 @@ namespace DotCAML
 
                         writer.WriteEndElement();
                         break;
+
                     case StartElement elem when element is StartElement:
                         writer.WriteStartElement(elem.Name);
 
                         if (elem.Attributes != null)
                         {
-                            foreach(var attribute in elem.Attributes)
+                            foreach (var attribute in elem.Attributes)
                             {
                                 writer.WriteAttributeString(attribute.Name, attribute.Value);
                             }
                         }
                         break;
+
                     case RawElement elem when element is RawElement:
                         writer.WriteRaw(elem.Xml);
                         break;
+
                     case ValueElement elem when element is ValueElement:
                         writer.WriteStartElement("Value");
 
@@ -258,6 +258,7 @@ namespace DotCAML
 
                         writer.WriteEndElement();
                         break;
+
                     case EndElement elem when element is EndElement:
                         int? count = elem.Count;
 
@@ -276,6 +277,7 @@ namespace DotCAML
                             writer.WriteEndElement();
                         }
                         break;
+
                     default:
                         break;
                 }

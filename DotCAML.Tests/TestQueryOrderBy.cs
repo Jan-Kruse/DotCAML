@@ -1,14 +1,10 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DotCAML.Tests
 {
     [TestClass]
     public class TestQueryOrderBy
     {
-
         [TestMethod]
         public void Test()
         {
