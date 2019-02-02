@@ -71,6 +71,10 @@
     <Compile Include="TestNestedJoins.cs" />
     <Compile Include="TestScope.cs" />
     <Compile Include="TestAggregations.cs" />
+    <Compile Include="TestMembership.cs" />
+    <Compile Include="TestReplaceWhere.cs" />
+    <Compile Include="TestAppendToWhere.cs" />
+    <Compile Include="TestAppendToWhereWithOrderBy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

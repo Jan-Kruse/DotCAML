@@ -2,6 +2,6 @@
 {
     public interface IGroupable : ISortable
     {
-        IGroupedQuery GroupBy(string fieldInternalName, bool? collapse, int? groupLimit);
+        IGroupedQuery GroupBy(string fieldInternalName, bool? collapse = null, int? groupLimit = null);
     }
 }

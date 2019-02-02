@@ -86,6 +86,7 @@
     <Compile Include="Models\Query\ISortedQuery.cs" />
     <Compile Include="Models\Query\Query.cs" />
     <Compile Include="Models\Query\QueryToken.cs" />
+    <Compile Include="Models\Query\RawQuery.cs" />
     <Compile Include="Models\Query\SortedQuery.cs" />
     <Compile Include="Models\Values\CamlValues.cs" />
     <Compile Include="Models\View\AggregationType.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Models\View\IView.cs" />
     <Compile Include="Models\View\Join.cs" />
     <Compile Include="Models\View\JoinsManager.cs" />
+    <Compile Include="Models\View\ModifyType.cs" />
     <Compile Include="Models\View\View.cs" />
     <Compile Include="Models\View\ViewScope.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

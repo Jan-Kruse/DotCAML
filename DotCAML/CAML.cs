@@ -24,9 +24,9 @@ namespace DotCAML
             return new FieldExpression(new Builder());
         }
 
-        public static IRawQuery RawQuery(string xml)
+        public static IRawQuery FromXml(string xml)
         {
-            throw new NotImplementedException();
+            return new RawQuery(xml);
         }
     }
 }
