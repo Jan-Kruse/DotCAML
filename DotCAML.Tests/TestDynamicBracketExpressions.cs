@@ -1,12 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using System.Collections.Generic;
 
 namespace DotCAML.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class TestDynamicBracketExpressions
     {
-        [TestMethod]
+        [Test]
         public void Test()
         {
             var categories = new List<string>() { "Platform Support", "Research and Strategy" };

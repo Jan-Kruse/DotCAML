@@ -1,11 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace DotCAML.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class TestViewWithExpression
     {
-        [TestMethod]
+        [Test]
         public void Test()
         {
             var expression = CAML.Expression().BooleanField("Enabled").IsTrue();

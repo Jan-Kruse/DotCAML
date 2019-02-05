@@ -1,11 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace DotCAML.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class TestJoins
     {
-        [TestMethod]
+        [Test]
         public void Test()
         {
             var caml = CAML

@@ -1,2 +1,8 @@
 language: csharp
 solution: DotCAML.sln
+install:
+  - nuget restore DotCAML.sln
+  - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
+script:
+  - msbuild /p:Configuration=Release DotCAML.sln
+  - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./DotCAML.Tests/bin/Release/DotCAML.Tests.dll

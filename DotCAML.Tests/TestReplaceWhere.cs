@@ -1,12 +1,12 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace DotCAML.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class TestReplaceWhere
     {
-        [TestMethod]
+        [Test]
         public void Test()
         {
             var rawQuery = @"<View Scope=""RecursiveAll"">
