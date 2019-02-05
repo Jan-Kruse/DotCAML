@@ -45,9 +45,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Xml.ReaderWriter.4.3.1\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
@@ -79,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotCAML\DotCAML.csproj">
-      <Project>{e64df019-7cc7-44a1-afef-483a03b49f45}</Project>
+      <Project>{72b46e9a-776f-411f-900c-6f7073b13730}</Project>
       <Name>DotCAML</Name>
     </ProjectReference>
   </ItemGroup>
