@@ -1,11 +1,11 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DotCAML.Tests
 {
-    [TestFixture]
+    [TestClass]
     public class TestIdInValues
     {
-        [Test]
+        [TestMethod]
         public void Test()
         {
             var caml = CAML.Where().CounterField("ID").In(new int[] { 1, 2, 3 }).ToString();

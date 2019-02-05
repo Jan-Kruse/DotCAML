@@ -1,12 +1,12 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace DotCAML.Tests
 {
-    [TestFixture]
+    [TestClass]
     public class TestJsDateFormat
     {
-        [Test]
+        [TestMethod]
         public void Test()
         {
             var caml = CAML.Where().DateTimeField("Created").GreaterThan(new DateTime(2013, 1, 1, 0, 0, 0, DateTimeKind.Utc)).ToString();

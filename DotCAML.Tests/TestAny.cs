@@ -1,11 +1,11 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DotCAML.Tests
 {
-    [TestFixture]
+    [TestClass]
     public class TestAny
     {
-        [Test]
+        [TestMethod]
         public void Test()
         {
             string caml = CAML.Where()

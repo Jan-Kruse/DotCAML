@@ -1,12 +1,12 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace DotCAML.Tests
 {
-    [TestFixture]
+    [TestClass]
     public class TestDateRangesOverlap
     {
-        [Test]
+        [TestMethod]
         public void Test()
         {
             var caml = CAML.Expression()
